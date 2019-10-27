@@ -1,0 +1,48 @@
+<div class="container">
+
+  <nav class="navbar navbar-light bg-light">
+    <p class="navbar-brand">Here you can try to find GitHub's users</p>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="btn btn-outline-secondary" 
+                  type="button" 
+                  id="button-addon1"
+                  (click)="searchUsers($event)"
+          >
+            Search
+          </button>
+        </div>
+        <input class="form-control"
+               type="text"
+               [(ngModel)]="searchName"
+               placeholder="Who are you looking for? Start typing a name..." 
+               aria-label="Example text with button addon" aria-describedby="button-addon1">
+      </div>
+  </nav>
+
+  <div *ngIf="mesage"  class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{mesage}}</strong>
+  </div>
+  
+  <hr>
+  
+  <!-- Table for render filtered Users -->
+  <table *ngIf="users.length" class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">User id</th>
+        <th scope="col">Login</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-user" *ngFor="let user of users"
+      [routerLink]="user.id">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.login}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+<div class="container">
+  
+  <div  class="card" style="width: 18rem;">
+    <img [src]="user.avatar_url" class="card-img-top" alt="avatar">
+      <div class="card-body">
+        <h5 class="card-title">More information about: <strong>{{user.name | uppercase}}</strong></h5>
+        <p class="card-title">Location: {{user.location}}</p>
+        <p class="card-text">Type: {{user.type}}</p>
+        <div class="card-">
+          <a [href]="user.url" class="btn btn-primary btn-block">See Profile</a>
+          <a routerLink="" class="btn btn-secondary btn-block">Go back</a>
+        </div>
+      </div>
+  </div>
+</div>
